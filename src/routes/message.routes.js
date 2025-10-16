@@ -20,8 +20,8 @@ router.get('/qr', messageController.getQRCode);
 // Protected routes (require API key)
 router.get('/status', messageController.getStatus);
 router.post('/send-message', messageController.sendMessage);
-router.post('/send-media', validateSendMedia, messageController.sendMedia);
-router.post('/send-file', authMiddleware, upload.single('file'), messageController.sendFile);
+router.post('/send-media',  messageController.sendMedia);
+router.post('/send-file', upload.single('file'), messageController.sendFile);
 router.get('/chats', authMiddleware, messageController.getChats);
 router.get('/contact/:number', authMiddleware, messageController.getContactInfo);
 router.post('/logout', authMiddleware, messageController.logout);

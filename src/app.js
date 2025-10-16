@@ -10,7 +10,7 @@ const app = express();
 // Tell Express to trust the first proxy (Render adds one)
 app.set('trust proxy', 1);
 // Now rate-limit will work properly
-const rateLimit = require('express-rate-limit');
+// const rateLimit = require('express-rate-limit');
 app.use(rateLimit({ windowMs: 1*60*1000, max: 30 }));
 
 // Security middleware

@@ -25,6 +25,9 @@ const initializeWhatsApp = () => {
     puppeteer: config.puppeteer
   });
 
+  console.log("HELLLOOO");
+  
+
   // QR Code event
   client.on('qr', async (qr) => {
     logger.info('QR Code received, scan with your phone');
@@ -39,6 +42,9 @@ const initializeWhatsApp = () => {
     }
   });
 
+
+  console.log("Helloo2");
+  
   // Ready event
   client.on('ready', () => {
     isReady = true;
@@ -47,10 +53,17 @@ const initializeWhatsApp = () => {
     logger.info('WhatsApp client is ready!');
   });
 
+  console.log("Hellooo3");
+  
+
   // Authenticated event
   client.on('authenticated', () => {
     logger.info('WhatsApp client authenticated');
   });
+
+
+  console.log("Helloooo4");
+  
 
   // Authentication failure event
   client.on('auth_failure', (msg) => {
@@ -58,6 +71,10 @@ const initializeWhatsApp = () => {
     isReady = false;
     isInitializing = false;
   });
+
+
+  console.log("Hellooo5");
+  
 
   // Disconnected event
   client.on('disconnected', (reason) => {
@@ -67,6 +84,8 @@ const initializeWhatsApp = () => {
     qrCodeData = null;
   });
 
+
+  console.log("Hellooo5");
   // Message event
   client.on('message', async (message) => {
     logger.info(`Message received from ${message.from}: ${message.body}`);
@@ -112,12 +131,13 @@ const formatNumber = (number) => {
 
 // Send text message
 const sendMessage = async (number, message) => {
-  if (!isReady) {
-    throw new Error('WhatsApp client is not ready');
-  }
+  // if (!isReady) {
+  //   throw new Error('WhatsApp client is not ready');
+  // }
 
+  console.log("Hellooosend1");
   const formattedNumber = formatNumber(number);
-  
+  console.log("Hellooosend1");
   try {
     const chat = await client.sendMessage(formattedNumber, message);
     logger.info(`Message sent to ${number}`);

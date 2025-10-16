@@ -19,7 +19,7 @@ router.get('/qr', messageController.getQRCode);
 
 // Protected routes (require API key)
 router.get('/status', messageController.getStatus);
-router.post('/send-message', validateSendMessage, messageController.sendMessage);
+router.post('/send-message', messageController.sendMessage);
 router.post('/send-media', validateSendMedia, messageController.sendMedia);
 router.post('/send-file', authMiddleware, upload.single('file'), messageController.sendFile);
 router.get('/chats', authMiddleware, messageController.getChats);
